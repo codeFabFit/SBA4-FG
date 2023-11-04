@@ -7,8 +7,6 @@ const options = {
 	}
 };
 
-
-
 async function GET () {
  
 try {
@@ -26,3 +24,30 @@ document.getElementById("myBtn").addEventListener("click", GET);
 
 GET();
 
+const getWorkoutBtn = document.getElementById("getWorkoutBtn");
+const finishWorkBtn = document.getElementById("finishWorkoutBtn");
+const workoutSection = document.getElementById("workoutSection");
+const workoutDetails = document.getElementById("workoutDetails");
+
+getWorkoutBtn.addEventListener("click", () => {
+    fetch("https://gym-workout1.p.rapidapi.com/exercise", options)
+    .then(response => response.json())
+    .then(data => {
+        //display workout details
+        workoutDetails.textContent = data.details;
+        workoutSection.style.display="block";
+        finishWorkBtn.style.display="block";
+        getWorkoutBtn.style.display="none";
+    })
+    .catch(error => {
+        console.error(error);
+    })
+})
+
+finishWorkBtn.addEventListener("click",() => {
+    // this will clear the workout
+    workoutDetails.textContent= "";
+    workoutSection.style.display="none";
+    finishWorkBtn.style.display = "none";
+    getWorkoutBtn.style.display = "block"
+})

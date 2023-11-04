@@ -23,3 +23,11 @@ li {
     border: 20px;
     margin: auto;
 }
+
+#finishWorkoutBtn {
+    display: auto;
+}
+
+#workoutSection {
+    display: auto;
+}
