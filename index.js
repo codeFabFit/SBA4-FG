@@ -12,7 +12,7 @@ const options = {
 async function GET () {
  
 try {
-	const response = await fetch(url, options);
+	const response = await fetch("https://gym-workout1.p.rapidapi.com/exercise", options);
 	const result = await response.text();
 	console.log(result);
     console.log(response.content);
