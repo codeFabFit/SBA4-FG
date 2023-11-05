@@ -1,28 +1,77 @@
-const url = 'https://gym-workout1.p.rapidapi.com/exercise';
+const url = 'https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises?muscle=biceps';
 const options = {
 	method: 'GET',
 	headers: {
 		'X-RapidAPI-Key': 'c795626373msh097bdf6cec9093fp1c326fjsnca7b69612bc2',
-		'X-RapidAPI-Host': 'gym-workout1.p.rapidapi.com'
+		'X-RapidAPI-Host': 'exercises-by-api-ninjas.p.rapidapi.com'
 	}
 };
+async function getValue() {
 
-async function GET () {
- 
 try {
-	const response = await fetch("https://gym-workout1.p.rapidapi.com/exercise", options);
-	const result = await response.text();
+	const response = await fetch(url, options);
+	const result = await response.json();
 	console.log(result);
-    console.log(response.content);
-
 } catch (error) {
 	console.error(error);
 }
+
 }
+getValue()
 
-document.getElementById("myBtn").addEventListener("click", GET);
+// const url = 'https://gym-workout1.p.rapidapi.com/exercise';
+// const options = {
+// 	method: 'GET',
+// 	headers: {
+// 		'X-RapidAPI-Key': 'c795626373msh097bdf6cec9093fp1c326fjsnca7b69612bc2',
+// 		'X-RapidAPI-Host': 'gym-workout1.p.rapidapi.com'
+// 	}
+// };
 
-GET();
+
+
+// async function getValue() {
+//     try {
+//         const response = await fetch(url, options);
+//         const result = await response.json();
+//         console.log(result);
+//     } catch (error) {
+//         console.error(error);
+//     }
+
+// }
+// getValue()
+
+
+
+
+
+
+// const url = 'https://gym-workout1.p.rapidapi.com/exercise';
+// const options = {
+// 	method: 'GET',
+// 	headers: {
+// 		'API_Key': 'c795626373msh097bdf6cec9093fp1c326fjsnca7b69612bc2',
+// 		'X-RapidAPI-Host': 'gym-workout1.p.rapidapi.com'
+// 	}
+// };
+// const MY_API_KEY = `c795626373msh097bdf6cec9093fp1c326fjsnca7b69612bc2`
+
+// async function getValue () {
+ 
+// try {
+// 	const response = await fetch("https://gym-workout1.p.rapidapi.com/exercise?api_key=${MY_API_KEY}", options);
+// 	const result = await response.text();
+// 	console.log(result);
+//     console.log(response.content);
+
+// } catch (error) {
+// 	console.error(error);
+// }
+// }
+
+//  document.getElementById("myBtn").addEventListener("click", getValue);
+
 
 const getWorkoutBtn = document.getElementById("getWorkoutBtn");
 const finishWorkBtn = document.getElementById("finishWorkoutBtn");
@@ -30,14 +79,28 @@ const workoutSection = document.getElementById("workoutSection");
 const workoutDetails = document.getElementById("workoutDetails");
 
 getWorkoutBtn.addEventListener("click", () => {
-    fetch("https://gym-workout1.p.rapidapi.com/exercise", options)
+    fetch("https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises?muscle=biceps", options)
     .then(response => response.json())
     .then(data => {
         //display workout details
-        workoutDetails.textContent = data.details;
-        workoutSection.style.display="block";
-        finishWorkBtn.style.display="block";
-        getWorkoutBtn.style.display="none";
+        console.log(data)
+
+        // data.for in((i) =>{
+        //     console.log(data[i].difficulty)
+        // })
+        for(const i in data){
+            console.log(data[i].name)
+            workoutDetails.textContent = data[i].name;
+            // workoutDetails.textContent = data[1].name;
+            // workoutDetails.textContent = data[2].name;
+            // workoutDetails.textContent = data[3].name;
+        }
+        workoutSection.appendChild(workoutDetails);
+        console.log(workoutDetails)
+
+        workoutSection.style.display="auto";
+        finishWorkBtn.style.display="auto";
+        getWorkoutBtn.style.display="auto";
     })
     .catch(error => {
         console.error(error);
@@ -47,7 +110,8 @@ getWorkoutBtn.addEventListener("click", () => {
 finishWorkBtn.addEventListener("click",() => {
     // this will clear the workout
     workoutDetails.textContent= "";
-    workoutSection.style.display="none";
-    finishWorkBtn.style.display = "none";
-    getWorkoutBtn.style.display = "block"
+    workoutSection.style.display="auto";
+    finishWorkBtn.style.display = "auto";
+    getWorkoutBtn.style.display = "auto"
 })
+

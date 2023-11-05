@@ -36,3 +36,9 @@ li {
 img {
     align-items: center;
 }
+
+#jumpinggif{
+    display: flex;
+    justify-content: flex-start;
+    align-content: space-between;
+}
