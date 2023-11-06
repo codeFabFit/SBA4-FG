@@ -19,6 +19,8 @@ try {
 }
 getValue()
 
+// this was my first api, it had a total list itemof 1300, i wanted to get it to
+// select 10 exercises but it was in a completely different language and wouldnt show on the browser 
 // const url = 'https://gym-workout1.p.rapidapi.com/exercise';
 // const options = {
 // 	method: 'GET',
@@ -27,8 +29,6 @@ getValue()
 // 		'X-RapidAPI-Host': 'gym-workout1.p.rapidapi.com'
 // 	}
 // };
-
-
 
 // async function getValue() {
 //     try {
@@ -42,10 +42,7 @@ getValue()
 // }
 // getValue()
 
-
-
-
-
+// here i got help from a classmate and made experiments on how to get it to work but still having trouble 
 
 // const url = 'https://gym-workout1.p.rapidapi.com/exercise';
 // const options = {
@@ -72,6 +69,9 @@ getValue()
 
 //  document.getElementById("myBtn").addEventListener("click", getValue);
 
+//---------------------------------------
+
+// below is my button actions they work perfectly fine
 
 const getWorkoutBtn = document.getElementById("getWorkoutBtn");
 const finishWorkBtn = document.getElementById("finishWorkoutBtn");
@@ -113,10 +113,20 @@ getWorkoutBtn.addEventListener("click", () => {
 })
 
 finishWorkBtn.addEventListener("click",() => {
-    // this will clear the workout
+    // this will clear the workout // works great unfortantly only one exercise shows up from the list not sure why 
     workoutDetails.textContent= "";
     workoutSection.style.display="auto";
     finishWorkBtn.style.display = "auto";
     getWorkoutBtn.style.display = "auto"
 })
 
+// gif movement shakes when clicked 
+
+const jumpingGif = document.getElementById('jumpinggif');
+
+jumpingGif.addEventListener('click', () => {
+  jumpingGif.classList.add('shake'); // makes the "shake" class when clicked
+  setTimeout(() => {
+    jumpingGif.classList.remove('shake'); // stops the "shake" class after the animation
+  }, 500); 
+});

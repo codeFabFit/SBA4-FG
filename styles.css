@@ -1,3 +1,7 @@
+body {
+    background-color: rgb(232, 223, 223);
+}
+
 button {
     display: flex;
     align-self: center;
@@ -20,10 +24,31 @@ h1, h2, h3, h4, p {
     max-width: 600px;
 }
 
+h1:hover {
+    color:#ff4136
+}
+h4:hover {
+    color:#ff4136
+}
+
+
 li {
     text-align: center;
     border: 20px;
     margin: auto;
+}
+
+li {
+    list-style: none;
+    padding: 10px;
+    border-color: #d58b8b;
+    border: 1px solid #ccc
+    transition; transform : 0.2s;
+}
+
+li:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0,0,0.2)
 }
 
 #finishWorkoutBtn {
@@ -38,8 +63,22 @@ img {
     align-items: center;
 }
 
-/* #jumpinggif{
-    display: flex;
-    justify-content: flex-start;
-    align-content: space-between;
-} */
+#jumpinggif{
+    width: 400px; 
+  height: 400px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.shake {
+    animation: shake 0.5s;
+  }
+  
+  @keyframes shake {
+    0% { transform: translate(0, 0); }
+    20% { transform: translate(-10px, 0); }
+    40% { transform: translate(10px, 0); }
+    60% { transform: translate(-10px, 0); }
+    80% { transform: translate(10px, 0); }
+    100% { transform: translate(0, 0); }
+  }
