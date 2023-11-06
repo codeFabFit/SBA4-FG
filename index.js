@@ -88,13 +88,18 @@ getWorkoutBtn.addEventListener("click", () => {
         // data.for in((i) =>{
         //     console.log(data[i].difficulty)
         // })
-        for(const i in data){
-            console.log(data[i].name)
-            workoutDetails.textContent = data[i].name;
-            // workoutDetails.textContent = data[1].name;
-            // workoutDetails.textContent = data[2].name;
-            // workoutDetails.textContent = data[3].name;
+        const workoutDetails = document.getElementById("workoutDetails");
+        for(const exercise of data) {
+            console.log(exercise.name);
+            workoutDetails.textContent = exercise.name;
         }
+        // for(const i in data){
+        //     console.log(data[i].name)
+        //     
+        //     // workoutDetails.textContent = data[1].name;
+        //     // workoutDetails.textContent = data[2].name;
+        //     // workoutDetails.textContent = data[3].name;
+        // }
         workoutSection.appendChild(workoutDetails);
         console.log(workoutDetails)
 
