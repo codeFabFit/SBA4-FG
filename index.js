@@ -1,8 +1,8 @@
-// the right API - switching the muscle type will get you different exercises
+// this got it to show 2 exercises, i want at least 3-4
 document.addEventListener("DOMContentLoaded", function() {
 
 })
-
+// the right API - switching the muscle type will get you different exercises
 const url = 'https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises?muscle=glutes';
 const options = {
 	method: 'GET',
@@ -61,7 +61,7 @@ getValue()
 // const MY_API_KEY = `c795626373msh097bdf6cec9093fp1c326fjsnca7b69612bc2`
 
 // async function getValue () {
- 
+ // this was not working either 
 // try {
 // 	const response = await fetch("https://gym-workout1.p.rapidapi.com/exercise?api_key=${MY_API_KEY}", options);
 // 	const result = await response.text();
@@ -92,23 +92,37 @@ getWorkoutBtn.addEventListener("click", () => {
         console.log(data)
 
    // for loop to get exercises 
-        // const workoutDetails = document.getElementById("workoutDetails");
+        const workoutDetails = document.getElementById("workoutDetails");
         workoutDetails.innerHTML = ""
         for(const exercise of data) {
             console.log(exercise.name);
-            workoutDetails.textContent = exercise.name;
+            workoutDetails.textContent = exercise.name;  
+ 
+}
 
-        const exerciseParagraph = document.createElement("p");
-        exerciseParagraph.textContent = exercise.name;
+const numExercises = 4; // Number of random exercises you want to fetch
+const randomExercises = [];
+
+for (let i = 0; i < numExercises; i++) {
+  const randomIndex = Math.floor(Math.random() * data.length); 
+  const exercise = data[randomIndex]; 
+
+  randomExercises.push(exercise); // addss the exercise to the randomExercises array
+
+ const exerciseParagraph = document.createElement("p");
+        numExercises.textContent = randomExercises;
+}
+//  workoutDetails.appendChild(exerciseParagraph);
+        // console.log(workoutDetails)
+console.log(randomExercises)
 
 
         // const exerciseParagraph = document.getElementById("p");
         // exerciseParagraph.textContent = exercise.name;
         // workoutDetails.appendChild(exerciseParagraph)
      
-        workoutDetails.appendChild(exerciseParagraph);
-        console.log(workoutDetails)
-}
+       
+
         workoutSection.style.display="block";
         finishWorkBtn.style.display="inline";
         getWorkoutBtn.style.display="inline";

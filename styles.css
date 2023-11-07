@@ -1,11 +1,11 @@
 body {
     background-color: rgb(232, 223, 223);
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 button {
-    display: flex;
+    
     align-self: center;
-    border: none;
     border-radius: 20px;
     padding: 10px 20px;
     background-color: #0074d9;
@@ -31,6 +31,9 @@ h4:hover {
     color:#ff4136
 }
 
+code {
+    color:#4b0704
+}
 
 li {
     text-align: center;
