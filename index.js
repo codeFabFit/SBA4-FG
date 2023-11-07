@@ -1,3 +1,8 @@
+// the right API - switching the muscle type will get you different exercises
+document.addEventListener("DOMContentLoaded", function() {
+
+})
+
 const url = 'https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises?muscle=glutes';
 const options = {
 	method: 'GET',
@@ -86,27 +91,27 @@ getWorkoutBtn.addEventListener("click", () => {
         //display workout details
         console.log(data)
 
-        // data.for in((i) =>{
-        //     console.log(data[i].difficulty)
-        // })
-        const workoutDetails = document.getElementById("workoutDetails");
+   // for loop to get exercises 
+        // const workoutDetails = document.getElementById("workoutDetails");
+        workoutDetails.innerHTML = ""
         for(const exercise of data) {
             console.log(exercise.name);
             workoutDetails.textContent = exercise.name;
-        }
-        // for(const i in data){
-        //     console.log(data[i].name)
-        //     
-        //     // workoutDetails.textContent = data[1].name;
-        //     // workoutDetails.textContent = data[2].name;
-        //     // workoutDetails.textContent = data[3].name;
-        // }
-        workoutSection.appendChild(workoutDetails);
-        console.log(workoutDetails)
 
-        workoutSection.style.display="auto";
-        finishWorkBtn.style.display="auto";
-        getWorkoutBtn.style.display="auto";
+        const exerciseParagraph = document.createElement("p");
+        exerciseParagraph.textContent = exercise.name;
+
+
+        // const exerciseParagraph = document.getElementById("p");
+        // exerciseParagraph.textContent = exercise.name;
+        // workoutDetails.appendChild(exerciseParagraph)
+     
+        workoutDetails.appendChild(exerciseParagraph);
+        console.log(workoutDetails)
+}
+        workoutSection.style.display="block";
+        finishWorkBtn.style.display="inline";
+        getWorkoutBtn.style.display="inline";
     })
     .catch(error => {
         console.error(error);
@@ -116,9 +121,9 @@ getWorkoutBtn.addEventListener("click", () => {
 finishWorkBtn.addEventListener("click",() => {
     // this will clear the workout // works great unfortantly only one exercise shows up from the list not sure why 
     workoutDetails.textContent= "";
-    workoutSection.style.display="auto";
-    finishWorkBtn.style.display = "auto";
-    getWorkoutBtn.style.display = "auto"
+    workoutSection.style.display="inline";
+    finishWorkBtn.style.display = "inline";
+    getWorkoutBtn.style.display = "inline"
 })
 
 // gif movement shakes when clicked 
