@@ -1,4 +1,4 @@
-const url = 'https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises?muscle=biceps';
+const url = 'https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises?muscle=glutes';
 const options = {
 	method: 'GET',
 	headers: {
@@ -18,6 +18,7 @@ try {
 
 }
 getValue()
+
 
 // this was my first api, it had a total list itemof 1300, i wanted to get it to
 // select 10 exercises but it was in a completely different language and wouldnt show on the browser 
@@ -79,7 +80,7 @@ const workoutSection = document.getElementById("workoutSection");
 const workoutDetails = document.getElementById("workoutDetails");
 
 getWorkoutBtn.addEventListener("click", () => {
-    fetch("https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises?muscle=biceps", options)
+    fetch("https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises?muscle=glutes", options)
     .then(response => response.json())
     .then(data => {
         //display workout details
