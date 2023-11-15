@@ -89,13 +89,13 @@ getWorkoutBtn.addEventListener("click", () => {
     .then(response => response.json())
     .then(data => {
         //display workout details
-        console.log(data)
+        // console.log(data)
 
    // for loop to get exercises 
         const workoutDetails = document.getElementById("workoutDetails");
         workoutDetails.innerHTML = ""
         for(const exercise of data) {
-            console.log(exercise.name);
+            // console.log(exercise.name);
             workoutDetails.textContent = exercise.name;  
  
 }
@@ -107,14 +107,16 @@ for (let i = 0; i < numExercises; i++) {
   const randomIndex = Math.floor(Math.random() * data.length); 
   const exercise = data[randomIndex]; 
 
-  randomExercises.push(exercise); // addss the exercise to the randomExercises array
-
- const exerciseParagraph = document.createElement("p");
-        numExercises.textContent = randomExercises;
+  randomExercises.push(exercise.name); // addss the exercise to the randomExercises array
+ workoutDetails.innerHTML = ""
+workoutDetails.textContent = randomExercises;
+//  const exerciseParagraph = document.createElement("p");
+        // numExercises.textContent = randomExercises;
 }
 //  workoutDetails.appendChild(exerciseParagraph);
         // console.log(workoutDetails)
 console.log(randomExercises)
+
 
 
         // const exerciseParagraph = document.getElementById("p");
