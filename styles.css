@@ -67,6 +67,7 @@ img {
 }
 
 #jumpinggif{
+  /* align-self: center; */
     width: 400px; 
   height: 400px;
   cursor: pointer;
@@ -113,3 +114,24 @@ img {
     animation: sweat-drop 2s ease-in-out infinite; /* Adjust the duration and timing as needed */
   }
 
+  /* confetti */
+
+.confetti {
+  width: 10px;
+  height: 10px;
+  background-color: #4b0704;
+  /* color of confetti */
+  position: absolute;
+  animation: fall 1s ease-out infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0)
+    rotate(0deg);
+  }
+  100% {
+    tranform: translateY(600px)
+    rotate(360deg);
+  }
+}

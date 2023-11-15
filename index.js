@@ -100,6 +100,8 @@ getWorkoutBtn.addEventListener("click", () => {
  
 }
 
+
+
 const numExercises = 4; // Number of random exercises you want to fetch
 const randomExercises = [];
 
@@ -107,7 +109,7 @@ for (let i = 0; i < numExercises; i++) {
   const randomIndex = Math.floor(Math.random() * data.length); 
   const exercise = data[randomIndex]; 
 
-  randomExercises.push(exercise.name); // addss the exercise to the randomExercises array
+  randomExercises.push(exercise.name ); // addss the exercise to the randomExercises array
  workoutDetails.innerHTML = ""
 workoutDetails.textContent = randomExercises;
 //  const exerciseParagraph = document.createElement("p");
@@ -134,13 +136,42 @@ console.log(randomExercises)
     })
 })
 
+
+
 finishWorkBtn.addEventListener("click",() => {
     // this will clear the workout // works great unfortantly only one exercise shows up from the list not sure why 
     workoutDetails.textContent= "";
     workoutSection.style.display="inline";
     finishWorkBtn.style.display = "inline";
     getWorkoutBtn.style.display = "inline"
-})
+
+});
+// document.getElementById("finishWorkBtn").addEventListener("click", () => {
+//   let canvas = document.createElement("canvas");
+//   canvas.width = 600;
+//   canvas.height = 600;
+//   let confettiContainer = document.getElementsById("confetti-container")
+//   confettiContainer.appendChild(canvas);
+
+//   let finishWorkBtn = confetti.create(canvas);
+//   confettiContainer().then(() => confettiContainer)
+// })
+// confetti effect
+
+// function createConfetti( {
+//   for i= 0; i < 100; i++; {
+//     const confetti = document.createElement("div");
+//     confetti.style.width = "10px";
+//     confetti.style.height= "10px";
+//     confetti.style.backgroundColor= #e44d26;
+//     confetti.style.position = "absolute";
+//     confetti.style.left = `${Math.random()* window.innerWidth}px`;
+//     confetti.style.animation= "fall 2s ease-out infinite"
+//     confettiContainer.appendChild(confetti)
+//   }
+// });
+
+
 
 // gif movement shakes when clicked 
 

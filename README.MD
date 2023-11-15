@@ -27,9 +27,9 @@ CodeFabFit
 
 Version History
 0.2
-coming soon , will add day my day body groups with selection of fitness level to maximize growth
+exercises are soon 4 at a time and choosen at random 
 0.1
-Initial Release with no bugs
+Initial Release with no bugs showing one exercise at a time, slight error
 License
 This project is licensed under the FABIOLA GARCON License - see the LICENSE.md file for details
 
